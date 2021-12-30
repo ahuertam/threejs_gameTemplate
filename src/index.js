@@ -7,6 +7,8 @@ import game from "./core/GameLoop";
 import resize from "./core/Resize";
 import Xbot from "./characters/Xbot";
 import model from "./core/BasicLoader";
+import keyListener from "./core/KeyListener";
+import Animator from "./core/Animator";
 
 scene.add(box);
 // Load 3d Elements
@@ -24,6 +26,9 @@ Xbot.then((mesh) => {
   mesh.modes = Xbot.modes;
   let scale = 0.01;
   mesh.scale.set(scale, scale, scale);
+  let anim = new Animator(mesh);
+  anim.action(1, 1, false);
+  anim.start();
 });
 
 camera.position.set(9, 5, 3);
@@ -32,8 +37,12 @@ scene.add(ambientLight);
 
 resize.start(renderer);
 
+keyListener.start();
 game.addCallback(() => {
-  box.rotation.y += 0.01;
+  if (keyListener.isPressed(38)) {
+    box.rotation.y += 0.01;
+  }
+  //box.rotation.x += 0.01;
   renderer.render(scene, camera);
 });
 
