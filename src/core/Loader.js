@@ -1,4 +1,4 @@
-import FBXLoader from "three-fbx-loader";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
 class Loader {
   constructor(modelFileUrl, urlAnimationList, scale) {

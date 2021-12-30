@@ -6,18 +6,30 @@ import renderer from "./core/Renderer";
 import game from "./core/GameLoop";
 import resize from "./core/Resize";
 import Xbot from "./characters/Xbot";
+import model from "./core/BasicLoader";
 
 scene.add(box);
 // Load 3d Elements
+//BASIC LOAD
+model.then((object) => {
+  scene.add(object);
+  let scale = 0.01;
+  object.position.set(1, 1, 1);
+  object.scale.set(scale, scale, scale);
+});
+//COMPLEX LOAD
 Xbot.then((mesh) => {
   console.log(mesh);
   scene.add(mesh);
   mesh.modes = Xbot.modes;
+  let scale = 0.01;
+  mesh.scale.set(scale, scale, scale);
 });
 
-camera.position.set(1, 4, 3);
+camera.position.set(9, 5, 3);
 camera.lookAt(box.position);
 scene.add(ambientLight);
+
 resize.start(renderer);
 
 game.addCallback(() => {
