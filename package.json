@@ -1,0 +1,25 @@
+{
+  "name": "threejs-gametemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "dat.gui": "0.7.7",
+    "gsap": "3.7.1",
+    "import-three-examples": "2.2.4",
+    "parcel-bundler": "^1.6.1",
+    "three": "0.130.1",
+    "three-fbx-loader": "1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": []
+}
